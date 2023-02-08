@@ -1,15 +1,15 @@
 class LibrariansController < ApplicationController
   #include Accessible
-  #before_action authenticate
+  before_action :authenticate!
   before_action :set_librarian, only: [:show, :edit, :update, :destroy]
-  
-  # def authenticate!
-    # if !current_admin.nil? 
-        # :authenticate_admin!
-	# elsif !current_librarian.nil?
-		# :authenticate_librarian!
-    # end
-  # end
+
+  def authenticate!
+    if !current_admin.nil? 
+      :authenticate_admin!
+	  elsif !current_librarian.nil?
+		  :authenticate_librarian!
+    end
+  end
 
   # GET /librarians
   # GET /librarians.json
@@ -21,27 +21,32 @@ class LibrariansController < ApplicationController
       sign_out :librarian
       redirect_to students_path, notice: 'Action not allowed.'
     else
-      @lib = Librarian.find_by(:email => current_librarian.email)
+      if current_librarian.nil?
+        current_librarian = @librarian
+      else
+      @lib = Librarian.find_by!(:email => @librarian[:email])
+      current_librarian = @librarian
       if @lib.approved == 'No'
-      redirect_to restricted_path
+        redirect_to restricted_path
       else
         library_name = current_librarian.library
         puts library_name
         @library = Library.all.where(:name => library_name).first
         @librarians = Librarian.all
       end
+      end
     end
   end
   
   def restricted
-  if student_signed_in?
+    if student_signed_in?
       sign_out :librarian
       redirect_to students_path, notice: 'Action not allowed.'
     end
   end
 
   def home_page
-  if student_signed_in?
+    if student_signed_in?
       sign_out :librarian
       redirect_to students_path, notice: 'Action not allowed.'
     end
@@ -51,7 +56,7 @@ class LibrariansController < ApplicationController
   # GET /librarians/1
   # GET /librarians/1.json
   def show
-  if student_signed_in?
+    if student_signed_in?
       sign_out :librarian
       redirect_to students_path, notice: 'Action not allowed.'
     end
@@ -64,11 +69,12 @@ class LibrariansController < ApplicationController
       redirect_to students_path, notice: 'Action not allowed.'
     else
 		if !current_librarian.nil?
-			@lib = Librarian.find_by(:email => current_librarian.email)
+      puts current_librarian
+			@lib = Librarian.find(:id => current_librarian[:id])
 			  if @lib.approved == 'No'
-				redirect_to restricted_path
+				  redirect_to restricted_path
 			  else
-				@librarian = Librarian.new
+				  @librarian = Librarian.new
 			  end
 		else
 			@librarian = Librarian.new
@@ -110,19 +116,18 @@ class LibrariansController < ApplicationController
 	  if student_signed_in?
       sign_out :librarian
       redirect_to students_path, notice: 'Action not allowed.'
-    else
+    end
+    lib = Airline.find_by!(@librarian[:id])
 		respond_to do |format|
-		  if @librarian.update(librarian_params)
-			  format.html { redirect_to @librarian, notice: 'Librarian was successfully updated.' }
-			  format.json { render :show, status: :ok, location: @librarian }
+		  if lib.update(librarian_params)
+			  format.html { redirect_to lib, notice: 'Librarian was successfully updated.' }
+			  format.json { render :show, status: :ok, location: lib }
 		  else
-			format.html { render :edit }
-			format.json { render json: @librarian.errors, status: :unprocessable_entity }
+			  format.html { render :edit }
+			  format.json { render json: lib.errors, status: :unprocessable_entity }
 		  end
 		end
-	end
   end
-
   # DELETE /librarians/1
   # DELETE /librarians/1.json
   def destroy
@@ -155,4 +160,5 @@ class LibrariansController < ApplicationController
     def librarian_params
       params.require(:librarian).permit(:name, :email, :password, :library, :approved)
     end
+
 end

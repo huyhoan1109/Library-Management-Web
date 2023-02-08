@@ -1,16 +1,45 @@
-<H1>Welcome to Library</H1>
-<table>
-	<th><strong>Home Page</strong></th>
-	<tr><td></td><tr>
-    <tr><td></td><tr>
-    <tr><td><strong>Students</strong></td><tr>
-    <tr><td><%= link_to 'Student Login (via Email or Google)', new_student_session_path %></td></tr>
-	<tr><td></td><tr>
-    <tr><td></td><tr>
-	<tr><td><strong>Librarians</strong></td><tr>
-    <tr><td><%= link_to 'Librarian Login', new_librarian_session_path %></td></tr>
-	<tr><td></td><tr>
-    <tr><td></td><tr>
-	<tr><td><strong>Administrator</strong></td><tr>
-    <tr><td><%= link_to 'Admin Login', new_admin_session_path %></td></tr>
-</table>
+<header>
+    <style>
+    .column {
+        float: left;
+        width: 50%;    
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    .word   {
+        font-size: 18px;
+    }
+    </style>
+</header>
+<H1>Homepage</H1>
+<div class="row">
+    <div class="column">
+    <table>
+        <tr><td>
+            <div class="word">
+                <%= link_to 'Student Login (via Email or Google)', new_student_session_path %>
+            </div>
+        </td></tr>
+        <tr><td></td><tr>
+        <tr><td></td><tr>
+        <tr><td>
+            <div class="word">
+            <%= link_to 'Librarian Login', new_librarian_session_path %>
+            </div>
+        </td></tr>
+        <tr><td></td><tr>
+        <tr><td></td><tr>
+        <tr><td>
+            <div class="word">
+            <%= link_to 'Admin Login', new_admin_session_path %></td></tr>
+            </div>
+    </table>
+    </div>
+    <div class="column" style="text-align: center;">
+        <img src="https://www.skoolbeep.com/blog/wp-content/uploads/2020/12/HOW-DO-YOU-DESIGN-A-LIBRARY-MANAGEMENT-SYSTEM-min.png" style="height: 80%; width: 80%;">
+    </div>
+</div>

@@ -20,6 +20,7 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
+
 version ruby 3.0.4 rails 7.0.4
 
 * Run
@@ -30,8 +31,13 @@ version ruby 3.0.4 rails 7.0.4
 
     rails s
 
-* 
-db 
+* Cài đặt:
+
+Trên Paiza Server: 
+    
+    Vào file Gemfile: Uncomment phần On Paiza => bundle update (Tương tự với local)
+
+* DB:
 
     admins Hoan, Duc
 

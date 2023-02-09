@@ -24829,3 +24829,134 @@ Processing by Librarians::SessionsController#new as HTML
 Completed 200 OK in 26ms (Views: 20.5ms | ActiveRecord: 0.5ms | Allocations: 21216)
 
 
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <main> at /home/kaneki/20221/Nhật ngành 3/LibraryManagementSystem/app/models/application_record.rb:1)
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from block (3 levels) in <class:Railtie> at /home/kaneki/20221/Nhật ngành 3/LibraryManagementSystem/vendor/bundle/ruby/3.0.0/gems/actionpack-7.0.4.2/lib/action_controller/railtie.rb:80)
+Started GET "/students/sign_in" for ::1 at 2023-02-10 02:10:28 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Students::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering students/sessions/new.html.erb within layouts/application
+  Rendered students/shared/_links.html.erb (Duration: 0.6ms | Allocations: 647)
+  Rendered students/sessions/new.html.erb within layouts/application (Duration: 13.8ms | Allocations: 8488)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+node:internal/crypto/hash:71
+  this[kHandle] = new _Hash(algorithm, xofLen);
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:71:19)
+    at Object.createHash (node:crypto:133:10)
+    at module.exports (/home/kaneki/20221/Nhật ngành 3/LibraryManagementSystem/node_modules/webpack/lib/util/createHash.js:135:53)
+    at NormalModule._initBuildHash (/home/kaneki/20221/Nhật ngành 3/LibraryManagementSystem/node_modules/webpack/lib/NormalModule.js:417:16)
+    at /home/kaneki/20221/Nhật ngành 3/LibraryManagementSystem/node_modules/webpack/lib/NormalModule.js:452:10
+    at /home/kaneki/20221/Nhật ngành 3/LibraryManagementSystem/node_modules/webpack/lib/NormalModule.js:323:13
+    at /home/kaneki/20221/Nhật ngành 3/LibraryManagementSystem/node_modules/loader-runner/lib/LoaderRunner.js:367:11
+    at /home/kaneki/20221/Nhật ngành 3/LibraryManagementSystem/node_modules/loader-runner/lib/LoaderRunner.js:233:18
+    at context.callback (/home/kaneki/20221/Nhật ngành 3/LibraryManagementSystem/node_modules/loader-runner/lib/LoaderRunner.js:111:13)
+    at /home/kaneki/20221/Nhật ngành 3/LibraryManagementSystem/node_modules/babel-loader/lib/index.js:55:103 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v18.14.0
+
+  Rendered layout layouts/application.html.erb (Duration: 2397.5ms | Allocations: 1150304)
+Completed 200 OK in 2423ms (Views: 2402.5ms | ActiveRecord: 0.5ms | Allocations: 1169581)
+
+
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <main> at /home/kaneki/20221/Nhật ngành 3/LibraryManagementSystem/app/models/application_record.rb:1)
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from block (3 levels) in <class:Railtie> at /home/kaneki/20221/Nhật ngành 3/LibraryManagementSystem/vendor/bundle/ruby/3.0.0/gems/actionpack-7.0.4.2/lib/action_controller/railtie.rb:80)
+Started GET "/students/sign_in" for ::1 at 2023-02-10 02:30:55 +0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Students::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering students/sessions/new.html.erb within layouts/application
+  Rendered students/shared/_links.html.erb (Duration: 0.9ms | Allocations: 647)
+  Rendered students/sessions/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 5438)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 611.9ms | Allocations: 1109058)
+Completed 200 OK in 633ms (Views: 615.9ms | ActiveRecord: 0.5ms | Allocations: 1124111)
+
+
+Started GET "/" for ::1 at 2023-02-10 02:31:01 +0700
+Processing by HomePageController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 366)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 14200)
+Completed 200 OK in 17ms (Views: 14.5ms | ActiveRecord: 0.0ms | Allocations: 15783)
+
+
+Started GET "/admins/sign_in" for ::1 at 2023-02-10 02:31:02 +0700
+Processing by Admins::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/shared/_links.html.erb (Duration: 0.8ms | Allocations: 589)
+  Rendered admins/sessions/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 2414)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 16284)
+Completed 200 OK in 22ms (Views: 16.0ms | ActiveRecord: 0.6ms | Allocations: 20996)
+
+
+Started GET "/admins/sign_in" for ::1 at 2023-02-10 02:31:04 +0700
+Processing by Admins::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/shared/_links.html.erb (Duration: 0.2ms | Allocations: 135)
+  Rendered admins/sessions/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1261)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 14965)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 16103)
+
+
+Started GET "/admins/sign_in" for ::1 at 2023-02-10 02:32:09 +0700
+Processing by Admins::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admins/sessions/new.html.erb within layouts/application
+  Rendered admins/shared/_links.html.erb (Duration: 0.8ms | Allocations: 517)
+  Rendered admins/sessions/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 2217)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 46.0ms | Allocations: 16490)
+Completed 200 OK in 49ms (Views: 48.1ms | ActiveRecord: 0.0ms | Allocations: 18219)
+
+
+Started GET "/admins/sign_up" for ::1 at 2023-02-10 02:32:15 +0700
+Processing by Admins::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering admins/registrations/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/3.0.0/gems/devise-4.8.1/app/views/devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 194)
+  Rendered admins/shared/_links.html.erb (Duration: 0.3ms | Allocations: 124)
+  Rendered admins/registrations/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2546)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 16414)
+Completed 200 OK in 34ms (Views: 28.7ms | ActiveRecord: 0.0ms | Allocations: 18097)
+
+
+Started GET "/" for ::1 at 2023-02-10 02:32:35 +0700
+Processing by HomePageController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home_page/index.html.erb within layouts/application
+  Rendered home_page/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 345)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 14178)
+Completed 200 OK in 24ms (Views: 22.0ms | ActiveRecord: 0.0ms | Allocations: 15628)
+
+

@@ -1,13 +1,13 @@
 class LibrariansController < ApplicationController
   #include Accessible
   before_action :authenticate!
-  before_action :set_librarian, only: [:show, :edit, :update, :destroy]
+  before_action :set_librarian, only: [:show, :edit, :update, :destroy, :index]
 
   def authenticate!
     if !current_admin.nil? 
       :authenticate_admin!
-	  elsif !current_librarian.nil?
-		  :authenticate_librarian!
+	  # elsif !current_librarian.nil?
+		#   :authenticate_librarian!
     end
   end
 
@@ -21,19 +21,14 @@ class LibrariansController < ApplicationController
       sign_out :librarian
       redirect_to students_path, notice: 'Action not allowed.'
     else
-      if current_librarian.nil?
-        current_librarian = @librarian
-      else
       @lib = Librarian.find_by!(:email => @librarian[:email])
       current_librarian = @librarian
       if @lib.approved == 'No'
         redirect_to restricted_path
       else
-        library_name = current_librarian.library
-        puts library_name
+        library_name = @lib[:library]
         @library = Library.all.where(:name => library_name).first
         @librarians = Librarian.all
-      end
       end
     end
   end
@@ -117,11 +112,13 @@ class LibrariansController < ApplicationController
       sign_out :librarian
       redirect_to students_path, notice: 'Action not allowed.'
     end
-    lib = Airline.find_by!(@librarian[:id])
 		respond_to do |format|
-		  if lib.update(librarian_params)
-			  format.html { redirect_to lib, notice: 'Librarian was successfully updated.' }
-			  format.json { render :show, status: :ok, location: lib }
+		  if @librarian.update(librarian_params)
+        if (current_admin.nil?)
+          sign_in(@librarian, :bypass => true)
+        end
+			  format.html { redirect_to @librarian, notice: 'Librarian was successfully updated.' } 
+        format.json { render :show, status: :ok, location: @librarian }
 		  else
 			  format.html { render :edit }
 			  format.json { render json: lib.errors, status: :unprocessable_entity }
@@ -153,7 +150,11 @@ class LibrariansController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_librarian
-      @librarian = Librarian.find(params[:id])
+      if (!current_librarian.nil?)
+        @librarian = Librarian.find(current_librarian[:id])
+      else
+        @librarian = Librarian.find(params[:id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

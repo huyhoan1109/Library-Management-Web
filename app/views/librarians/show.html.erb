@@ -20,5 +20,7 @@
   <%= @librarian.approved %>
 </p>
 
+<% if (!current_librarian.nil?) %>
 <%= link_to 'Edit', edit_librarian_path(@librarian) %> |
 <%= link_to 'Back', librarians_path %>
+<% end %>

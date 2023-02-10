@@ -10,11 +10,11 @@
 
     rails s
 
-* Cài đặt:
+* Install:
 
-    Trên Paiza Server: 
+    On Paiza Server: 
     
-    - Vào file Gemfile: Uncomment phần On Paiza => bundle update (Tương tự với local)
+    - In Gemfile: Uncomment On Paiza => bundle update
 
 * DB:
 

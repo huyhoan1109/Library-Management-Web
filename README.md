@@ -8,7 +8,7 @@
     
     - In Gemfile: Uncomment On Paiza => bundle update
     
-    - Add config.hosts = " Your server " to config/development.rb
+    - Add config.hosts = " Your server " to config/environment/development.rb
 
 * Run
     

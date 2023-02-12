@@ -48,10 +48,10 @@
         <td><%= book.category %></td>		
  <td><% if book.special_collection == true %>
 			'Yes'
-			else
+			<% else %>
 			  'No'
-			end
-			 %></td>
+			<% end %>
+      </td>
         <td><%=  Library.find(book.library_id ).name %></td>
         <% if book.count > 0 %> 
           <td><%= "Available" %></td>

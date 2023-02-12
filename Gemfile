@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ## On local
-# ruby '3.0.4'
-# gem 'rails', '~> 7.0.0'
+ruby '3.0.4'
+gem 'rails', '~> 7.0.0'
 
 ## On paiza
 # ruby '2.6.0'

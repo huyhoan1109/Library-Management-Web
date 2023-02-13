@@ -139,6 +139,7 @@ class BooksController < ApplicationController
       else
         flash[:notice] = "Book Already Checked Out!!!"
       end
+      redirect_to books_students_path
     else
       if(@book.count>0)
         
@@ -167,6 +168,7 @@ class BooksController < ApplicationController
             flash[:notice] = "Book Already Checked Out!!"
           end  
         end
+        redirect_to books_students_path
       else
         if Checkout.where(:student_id => current_student.id , :book_id => @book.id).first.nil?
           if HoldRequest.where(:student_id => current_student.id , :book_id => @book.id).first.nil?
@@ -179,14 +181,15 @@ class BooksController < ApplicationController
         else
           flash[:notice] = "Book Already Checked Out!!!"
         end
+        redirect_to books_students_path
       end
       if !current_student.nil?
         if a==1
-          redirect_to books_students_path, noitce: 'You cannot issue more books.'
+          return books_students_path, noitce: 'You cannot issue more books.'
         end
       end
     end
-    redirect_to books_students_path
+    return books_students_path
   end
 
   def getStudentBookFine
@@ -248,6 +251,7 @@ class BooksController < ApplicationController
       else 
         flash[:notice] = "Book is not checked out"
       end  
+      
     else
       if !Checkout.where(:student_id => current_student.id , :book_id => @book.id,:return_date => nil).nil?
         @hold_request = HoldRequest.where(:book_id => @book.id).first

@@ -41,11 +41,12 @@
         <td><%= result.subject %></td>
         <td><%= result.summary %></td>
         <td><%= result.category %></td>
-        <td><% if result.special_collection == true %>
-			Yes
-			<% else %>
-			No
-			<% end %>
+        <td>
+        <% if result.special_collection == true %>
+			    Yes
+			  <% else %>
+			    No
+			  <% end %>
 		</td>
       </tr>
     <% end %>

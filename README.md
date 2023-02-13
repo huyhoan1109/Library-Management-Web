@@ -1,29 +1,21 @@
-* Deployment
+- Deployment
 
-    version ruby 3.0.4 rails 7.0.4
+  version ruby 3.0.4 rails 7.0.4
 
-* Run
-    
-    bundle update
-    
-    rails db:migrate
+- Install:
 
-    rails s
+  On Paiza Server:
 
-* Cài đặt:
+  - In Gemfile: Uncomment On Paiza => bundle update
 
-    Trên Paiza Server: 
-    
-    - Vào file Gemfile: Uncomment phần On Paiza => bundle update (Tương tự với local)
+  - Add config.hosts = " Your server " to config/environment/development.rb
 
-* DB:
+- Run
 
-    admins Hoan, Duc
+  bundle config set path 'vendor/bundle'
 
-    books Hoang Bao, Duc 
-    
-    librarians, libraries  Truong, Duc
-    
-    students Le Bao Anh 
-    
-    transaction, user_mailer Dung
+  bundle update
+
+  rails db:migrate
+
+  rails s

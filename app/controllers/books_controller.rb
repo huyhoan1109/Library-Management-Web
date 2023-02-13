@@ -161,7 +161,7 @@ class BooksController < ApplicationController
             @book.decrement(:count)
             puts @book.count
             @user = current_student
-            # UserMailer.checkout_email(@user,@book).deliver_now
+            UserMailer.checkout_email(@user,@book).deliver_now
             @checkout.save!
             @book.save!
           else 
@@ -245,7 +245,7 @@ class BooksController < ApplicationController
         @checkout.save!
         flash[:notice] = "Book Successfully returned"
         @user = current_student
-        # UserMailer.returnbook_email(@user,@book).deliver_now
+        UserMailer.returnbook_email(@user,@book).deliver_now
         @book.increment(:count)
         @book.save!
       else 
@@ -260,7 +260,7 @@ class BooksController < ApplicationController
           @checkout.update( :return_date => Date.today)
           flash[:notice] = "Book Successfully returned"
           @user = current_student
-          # UserMailer.returnbook_email(@user,@book).deliver_now
+          UserMailer.returnbook_email(@user,@book).deliver_now
           @book.increment(:count)
           @book.save!
         else
@@ -269,7 +269,7 @@ class BooksController < ApplicationController
           @checkout_new = Checkout.new(:student_id => @hold_request.student_id , :book_id => @hold_request.book_id , :issue_date => Date.today , :return_date =>nil , :validity => Library.find(@book.library_id).borrow_limit)
           @checkout_new.save!
           flash[:notice] = "Book Successfully returned"
-          # UserMailer.checkout_email(User.find(@hold_request.student_id),@book).deliver_now
+          UserMailer.checkout_email(User.find(@hold_request.student_id),@book).deliver_now
           @hold_request.destroy
         end
       end
@@ -285,7 +285,7 @@ class BooksController < ApplicationController
     else
       @bookmark = Bookmark.new(:student_id => current_student.id , :book_id => @book.id);
       @user = current_student
-      # UserMailer.bookmark_email(@user,@book).deliver_now
+      UserMailer.bookmark_email(@user,@book).deliver_now
       @bookmark.save!
       flash[:notice] = "Book Added to your bookmarks"
     end
@@ -357,7 +357,7 @@ class BooksController < ApplicationController
     flash[:notice] = "Book Successfully Checked Out"
     @book.decrement(:count)
     @user = Student.find(@special_book.student_id)
-    # UserMailer.checkout_email(@user,@book).deliver_now
+    UserMailer.checkout_email(@user,@book).deliver_now
     @special_book = SpecialBook.find(@special_book_id)
     @special_book.destroy
     @checkout.save!

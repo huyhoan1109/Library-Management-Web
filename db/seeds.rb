@@ -1,7 +1,6 @@
 Admin.create!([
   {email: "admin@gmail.com", name: "admin", password: "admin123"}
 ])
-
 Library.create!([
   {name: "Tạ Quang Bửu", location: "Số 1 Đại Cồ Việt, Bách Khoa, Hai Bà Trưng, Hà Nội", borrow_limit: 20, overdue_fines: 2, university: "Dai Hoc Bach Khoa"},
   {name: "Thư viện KT QD", location: "2R2V+228, Đồng Tâm, Hai Bà Trưng, Hà Nội", borrow_limit: 20, overdue_fines: 2, university: "Dai Hoc Kinh Te Quoc Dan"},

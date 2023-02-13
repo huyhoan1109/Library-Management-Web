@@ -4,6 +4,8 @@
 
 - Install:
 
+  rm -rf .ruby-version
+
   On Paiza Server:
 
   - In Gemfile: Uncomment On Paiza => bundle update

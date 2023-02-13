@@ -1,6 +1,4 @@
 <p id="notice"><%= notice %></p>
-
-
 <p>
  <table>
   <thead>
@@ -33,11 +31,11 @@
         <td><%= result.summary %></td>
         <td><%= result.category %></td>
         <td>
-        <%= if result.special_collection == true %>
+        <% if result.special_collection %>
 			  'Yes'
 	    	<% else %>
 			  'No'
-			  <%= end %>
+			  <% end %>
         </td>
         <td><%=  Library.find(result.library_id).name %></td>
 		<% if current_student.nil? %>
